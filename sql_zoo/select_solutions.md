@@ -13,17 +13,17 @@ Angola	Africa	1246700	20609294	100990000000
 ....
 ```
 
-Q1. Modify it to show the population of Germany?
+#### Q1. Modify it to show the population of Germany?
 ```
 SELECT population FROM world
   WHERE name = 'France'
 ```
-Q2. Show the name and the population for 'Sweden', 'Norway' and 'Denmark'?
+#### Q2. Show the name and the population for 'Sweden', 'Norway' and 'Denmark'?
 ```
 SELECT name, population FROM world
   WHERE name IN ('Sweden', 'Norway', 'Denmark');
 ```
-Q3. Which countries are not too small and not too big? BETWEEN allows range checking (range specified is inclusive of boundary values). The example below shows countries with an area of 250,000-300,000 sq. km. Modify it to show the country and the area for countries with an area between 200,000 and 250,000.
+#### Q3. Which countries are not too small and not too big? BETWEEN allows range checking (range specified is inclusive of boundary values). The example below shows countries with an area of 250,000-300,000 sq. km. Modify it to show the country and the area for countries with an area between 200,000 and 250,000.
 ```
 SELECT name, area FROM world
   WHERE area BETWEEN 200000 AND 250000
@@ -40,31 +40,31 @@ Algeria	Middle East	2400000	32900000	75012000000
 Andorra	Europe	468	64000	
 ...
 
-Q1. Select the code which produces this table
-name	population
-Bahrain	1234571
-Swaziland	1220000
-Timor-Leste	1066409
-```
-Select name, population from country where population between 1000000 and 1250000;
+#### Q1. Select the code which produces this table
+#### name	population
+     Bahrain	1234571
+     Swaziland	1220000
+     Timor-Leste	1066409
 
-Q2. Pick the result you would obtain from this code:
-```
+#### Select name, population from country where population between 1000000 and 1250000;
+
+#### Q2. Pick the result you would obtain from this code:
       SELECT name, population
       FROM world
       WHERE name LIKE "Al%"
-```
+      
 ```
 Albania	3200000
 Algeria	32900000
 ```
 
-Q3. Select the code which shows the countries that end in A or L?
+#### Q3. Select the code which shows the countries that end in A or L?
 ```
 SELECT name FROM world
  WHERE name LIKE '%a' OR name LIKE '%l'
 ```
-Q4.  Pick the result from the query
+
+#### Q4.  Pick the result from the query
 ```
 SELECT name,length(name)
 FROM world
@@ -83,17 +83,18 @@ Albania	Europe	28728	3200000	6656000000
 Algeria	Middle East	2400000	32900000	75012000000
 Andorra	Europe	468	64000	
 ...
-Q5. Pick the result you would obtain from this code:
+
+#### Q5. Pick the result you would obtain from this code:
 SELECT name, area*2 FROM world WHERE population = 64000
-```
+
 ```
 Andorra	936
 ```
-Q6. Select the code that would show the countries with an area larger than 50000 and a population smaller than 10000000?
+#### Q6. Select the code that would show the countries with an area larger than 50000 and a population smaller than 10000000?
 ```
 select name, area, population from world where area > 50000 and population < 10000000;
 ```
-Q7. Select the code that shows the population density of China, Australia, Nigeria and France
+#### Q7. Select the code that shows the population density of China, Australia, Nigeria and France
 ```
 SELECT name, population/area
   FROM world
