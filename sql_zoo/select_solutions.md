@@ -14,17 +14,20 @@ Angola	Africa	1246700	20609294	100990000000
 ```
 
 Q1. Modify it to show the population of Germany?
-```
+
+```sql
 SELECT population FROM world
   WHERE name = 'France'
 ```
 Q2. Show the name and the population for 'Sweden', 'Norway' and 'Denmark'?
-```
+
+```sql
 SELECT name, population FROM world
   WHERE name IN ('Sweden', 'Norway', 'Denmark');
 ```
 Q3. Which countries are not too small and not too big? BETWEEN allows range checking (range specified is inclusive of boundary values). The example below shows countries with an area of 250,000-300,000 sq. km. Modify it to show the country and the area for countries with an area between 200,000 and 250,000.
-```
+
+```sql
 SELECT name, area FROM world
   WHERE area BETWEEN 200000 AND 250000
 ```
@@ -41,35 +44,44 @@ Andorra	|Europe	|468	|64000
 ...
 
 Q1. Select the code which produces this table
+
 name|	population
 Bahrain|	1234571
 Swaziland|	1220000
 Timor-Leste|	1066409
 
+
 Select name, population from country where population between 1000000 and 1250000;
 
 Q2. Pick the result you would obtain from this code:
-```
+
+```sql
       SELECT name, population
       FROM world
       WHERE name LIKE "Al%"
 ```
+Result:
+
 ```
 Albania	|3200000|
 Algeria	|32900000|
 ```
 
 Q3. Select the code which shows the countries that end in A or L?
-```
+
+```sql
 SELECT name FROM world
  WHERE name LIKE '%a' OR name LIKE '%l'
 ```
 Q4.  Pick the result from the query
-```
+
+```sql
 SELECT name,length(name)
 FROM world
 WHERE length(name)=5 and region='Europe'
 ```
+Result
+
 ```
 name	|length(name)
 Italy	|5
@@ -83,18 +95,23 @@ Albania	Europe|	28728	|3200000	|6656000000|
 Algeria	Middle |East	|2400000	|32900000	|75012000000
 Andorra	Europe	|468	|64000	|           | 
 ...
+
 Q5. Pick the result you would obtain from this code:
+```sql
 SELECT name, area*2 FROM world WHERE population = 64000
 ```
+Result:
 ```
 Andorra	936
 ```
 Q6. Select the code that would show the countries with an area larger than 50000 and a population smaller than 10000000?
-```
+
+```sql
 select name, area, population from world where area > 50000 and population < 10000000;
 ```
+
 Q7. Select the code that shows the population density of China, Australia, Nigeria and France
-```
+```sql
 SELECT name, population/area
   FROM world
  WHERE name IN ('China', 'Nigeria', 'France', 'Australia')
@@ -110,55 +127,64 @@ Andorra	|Europe	|468	|78115	|3712000000|
 Angola	|Africa	|1246700	|20609294|	100990000000|
 ...
 
-Q1. Observe the result of running this SQL command to show the name, continent and population of all countries
-```
+Q1. Observe the result of running this SQL command to show the name, continent and population of all countries?
+
+```sql
 select name, continent, population from world
 ```
 
-Q2. Show the name for the countries that have a population of at least 200 million. 200 million is 200000000, there are eight zeros.
-```
+Q2. Show the name for the countries that have a population of at least 200 million. 200 million is 200000000, there are eight zeros?
+
+```sql
 select name from world where population > 200000000;
 ```
 
-Q3. Give the name and the per capita GDP for those countries with a population of at least 200 million.
-```
+Q3. Give the name and the per capita GDP for those countries with a population of at least 200 million?
+
+```sql
 select name, GDP/population from world where population > 200000000;
 ```
 
-Q4. Show the name and population in millions for the countries of the continent 'South America'. Divide the population by 1000000 to get population in millions.
-```
+Q4. Show the name and population in millions for the countries of the continent 'South America'. Divide the population by 1000000 to get population in millions?
+
+```sql
 select name, population/1000000 from world where continent like 'South America';
 ```
 
 Q5. Show the name and population for France, Germany, Italy?
-```
+
+```sql
 select name, population from world where name in ('France', 'Germany', 'Italy');
 ```
 
 Q6. Show the countries which have a name that includes word United? 
-```
+
+```sql
 select name from world where name like '%United%';
 ```
 
-Q7. Two ways to be big: A country is big if it has an area of more than 3 million sq km or it has a population of more than 250 million.
-
+Q7. Two ways to be big: A country is big if it has an area of more than 3 million sq km or it has a population of more than 250 million?
 Show the countries that are big by area or big by population. Show name, population and area.
-```
+
+```sql
 select name, population, area from world where area > 3000000 or population > 250000000
+```
 
 Q8. Exclusive OR (XOR). Show the countries that are big by area (more than 3 million) or big by population (more than 250 million) but not both. Show name, population and area.
 
-Australia has a big area but a small population, it should be included.
-Indonesia has a big population but a small area, it should be included.
-China has a big population and big area, it should be excluded.
-United Kingdom has a small population and a small area, it should be excluded.
-```
+- Australia has a big area but a small population, it should be included.
+- Indonesia has a big population but a small area, it should be included.
+- China has a big population and big area, it should be excluded.
+- United Kingdom has a small population and a small area, it should be excluded.
+
+```sql
 select name, population, area from world where area > 3000000 xor population > 250000000
 ```
-Q9. Show the name and population in millions and the GDP in billions for the countries of the continent 'South America'. Use the ROUND function to show the values to two decimal places.
 
+Q9. Show the name and population in millions and the GDP in billions for the countries of the continent 'South America'. Use the ROUND function to show the values to two decimal places.
 For South America show population in millions and GDP in billions both to 2 decimal places.
-```
+
+```sql
 select name, round(population/1000000, 2), round(GDP/1000000000, 2) from world where continent like 'South America';
 ```
 
@@ -166,7 +192,8 @@ Q11. Greece has capital Athens.
 Each of the strings 'Greece', and 'Athens' has 6 characters.
 Show the name and capital where the name and the capital have the same number of characters.
 You can use the LENGTH function to find the number of characters in a string
-```
+
+```sql
 SELECT name,   
        capital
   FROM world
@@ -178,6 +205,7 @@ Q12. The capital of Sweden is Stockholm. Both words start with the letter 'S'.
 Show the name and the capital where the first letters of each match. Don't include #### countries where the name and the capital are the same word.
 You can use the function LEFT to isolate the first character.
 You can use <> as the NOT EQUALS operator.
+
 ```sql
 SELECT name, capital
 FROM world where name != capital and LEFT(name,1) = LEFT(capital, 1)
@@ -209,24 +237,27 @@ world
 |Uzbekistan|	Central Asia|	447000|	26000000|	
 ...
 
-Q1. Select the code which gives the name of countries beginning with U
+Q1. Select the code which gives the name of countries beginning with U?
 ```sql
 SELECT name
   FROM world
  WHERE name LIKE 'U%'
 ```
+
 Q2. Select the code which shows just the population of United Kingdom?
+
 ```sql
 SELECT population
   FROM world
  WHERE name = 'United Kingdom'
- ```
+```
 
 Q3. Select the answer which shows the problem with this SQL code - the intended result should be the continent of France:
  SELECT continent 
    FROM world 
   WHERE 'name' = 'France'
 
+Result:
 ```
 'name' should be name
 ```
@@ -235,10 +266,16 @@ Q4. Select the result that would be obtained from the following code:
  SELECT name, population / 10 
   FROM world 
  WHERE population < 10000
+
+Result: 
 ```
 Nauru	990
 ```
 #### Q5. Select the code which would reveal the name and population of countries in Europe and Asia
+<<<<<<< HEAD
+=======
+
+>>>>>>> d5b815a41cc2ee1beab94433b6378ef7ed925271
 ```sql
 SELECT name, population
   FROM world
@@ -251,6 +288,7 @@ Q6. Select the code which would give two rows
 SELECT name FROM world
  WHERE name IN ('Cuba', 'Togo')
 ```
+
 Q7. Select the result that would be obtained from this code:
 SELECT name FROM world
  WHERE continent = 'South America'
@@ -380,7 +418,7 @@ SELECT COUNT(DISTINCT yr) FROM nobel
 
 Q4. Select the result that would be obtained from the following code:
 SELECT subject, winner FROM nobel WHERE winner LIKE 'Sir%' AND yr LIKE '196%'
-```
+```sql
 Medicine	Sir John Eccles
 Medicine	Sir Frank Macfarlane Burnet
 ```
@@ -409,6 +447,7 @@ SELECT DISTINCT yr
    FROM nobel 
   WHERE yr ='1960' 
   GROUP BY subject
+Result:
 ```
 Chemistry	1
 Literature	1
