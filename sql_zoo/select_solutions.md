@@ -33,19 +33,19 @@ SELECT name, area FROM world
 
 Some questions concerning basic SQL statements
 
-name	region	area	population	gdp
-Afghanistan	South Asia	652225	26000000	
-Albania	Europe	28728	3200000	6656000000
-Algeria	Middle East	2400000	32900000	75012000000
-Andorra	Europe	468	64000	
+name |	region |	area	| population	| gdp
+Afghanistan	|South Asia	|652225	|26000000	
+Albania	|Europe	28728	|3200000	|6656000000
+Algeria	|Middle East	|2400000	|32900000|	75012000000
+Andorra	|Europe	|468	|64000	
 ...
 
 Q1. Select the code which produces this table
-name	population
-Bahrain	1234571
-Swaziland	1220000
-Timor-Leste	1066409
-```
+name|	population
+Bahrain|	1234571
+Swaziland|	1220000
+Timor-Leste|	1066409
+
 Select name, population from country where population between 1000000 and 1250000;
 
 Q2. Pick the result you would obtain from this code:
@@ -55,8 +55,8 @@ Q2. Pick the result you would obtain from this code:
       WHERE name LIKE "Al%"
 ```
 ```
-Albania	3200000
-Algeria	32900000
+Albania	|3200000|
+Algeria	|32900000|
 ```
 
 Q3. Select the code which shows the countries that end in A or L?
@@ -71,17 +71,17 @@ FROM world
 WHERE length(name)=5 and region='Europe'
 ```
 ```
-name	length(name)
-Italy	5
-Malta	5
-Spain	5
+name	|length(name)
+Italy	|5
+Malta	|5
+Spain	|5
 ```
 Here are the first few rows of the world table:
-name	region	area	population	gdp
-Afghanistan	South Asia	652225	26000000	
-Albania	Europe	28728	3200000	6656000000
-Algeria	Middle East	2400000	32900000	75012000000
-Andorra	Europe	468	64000	
+name	|region	|area	|population	|gdp|
+Afghanistan	|South Asia	|652225	|26000000	|
+Albania	Europe|	28728	|3200000	|6656000000|
+Algeria	Middle |East	|2400000	|32900000	|75012000000
+Andorra	Europe	|468	|64000	|           | 
 ...
 Q5. Pick the result you would obtain from this code:
 SELECT name, area*2 FROM world WHERE population = 64000
@@ -102,12 +102,12 @@ SELECT name, population/area
  
 ### SELECT from World Tutorial
 
-name	continent	area	population	gdp
-Afghanistan	Asia	652230	25500100	20343000000
-Albania	Europe	28748	2831741	12960000000
-Algeria	Africa	2381741	37100000	188681000000
-Andorra	Europe	468	78115	3712000000
-Angola	Africa	1246700	20609294	100990000000
+name	|continent	|area	|population	|gdp|
+Afghanistan	|Asia	|652230	|25500100	|20343000000|
+Albania	|Europe	|28748	|2831741|	12960000000|
+Algeria	|Africa	|2381741	|37100000|	188681000000|
+Andorra	|Europe	|468	|78115	|3712000000|
+Angola	|Africa	|1246700	|20609294|	100990000000|
 ...
 
 Q1. Observe the result of running this SQL command to show the name, continent and population of all countries
@@ -173,22 +173,22 @@ SELECT name,
  WHERE LENGTH(name) = LENGTH(capital)
 ```
 
-#### Q12. The capital of Sweden is Stockholm. Both words start with the letter 'S'.
+Q12. The capital of Sweden is Stockholm. Both words start with the letter 'S'.
 
-#### Show the name and the capital where the first letters of each match. Don't include #### countries where the name and the capital are the same word.
-#### You can use the function LEFT to isolate the first character.
-#### You can use <> as the NOT EQUALS operator.
-```
+Show the name and the capital where the first letters of each match. Don't include #### countries where the name and the capital are the same word.
+You can use the function LEFT to isolate the first character.
+You can use <> as the NOT EQUALS operator.
+```sql
 SELECT name, capital
 FROM world where name != capital and LEFT(name,1) = LEFT(capital, 1)
 ```
 
-#### Q13. Equatorial Guinea and Dominican Republic have all of the vowels (a e i o u) in the name. They don't count because they have more than one word in the name.
+Q13. Equatorial Guinea and Dominican Republic have all of the vowels (a e i o u) in the name. They don't count because they have more than one word in the name.
 
-#### Find the country that has all the vowels and no spaces in its name.
+Find the country that has all the vowels and no spaces in its name.
 
-#### You can use the phrase name NOT LIKE '%a%' to exclude characters from your results.
-#### The query shown misses countries like Bahamas and Belarus because they contain at least one 'a'
+You can use the phrase name NOT LIKE '%a%' to exclude characters from your results.
+The query shown misses countries like Bahamas and Belarus because they contain at least one 'a'
 ```
 SELECT name
    FROM world
@@ -198,25 +198,25 @@ WHERE name LIKE '%a%' and name LIKE '%e%' and name LIKE '%i%' and name LIKE '%o%
 ### BBC QUIZ
 
 world
-name	continent	area	population	gdp
-Afghanistan	South Asia	652225	26000000	
-Albania	Europe	28728	3200000	6656000000
-Algeria	Middle East	2400000	32900000	75012000000
-Andorra	Europe	468	64000	
-Brazil	South America	8550000	182800000	564852000000
-Colombia	South America	1140000	45600000	
-Nauru	Asia-Pacific	21	9900	
-Uzbekistan	Central Asia	447000	26000000	
+|name|	continent	|area	|population|	gdp|
+|Afghanistan	|South Asia|	652225|	26000000|	
+|Albania	|Europe	|28728	|3200000|	6656000000|
+|Algeria	|Middle East|	2400000	|32900000|	75012000000|
+|Andorra	|Europe	|468|	64000|	
+|Brazil|	South America|	8550000	|182800000|	564852000000|
+|Colombia	|South America|	1140000|	45600000	|
+|Nauru	|Asia-Pacific|	21|	9900|	
+|Uzbekistan|	Central Asia|	447000|	26000000|	
 ...
 
 Q1. Select the code which gives the name of countries beginning with U
-```
+```sql
 SELECT name
   FROM world
  WHERE name LIKE 'U%'
 ```
-#### Q2. Select the code which shows just the population of United Kingdom?
-```
+Q2. Select the code which shows just the population of United Kingdom?
+```sql
 SELECT population
   FROM world
  WHERE name = 'United Kingdom'
@@ -239,7 +239,7 @@ Q4. Select the result that would be obtained from the following code:
 Nauru	990
 ```
 #### Q5. Select the code which would reveal the name and population of countries in Europe and Asia
-```
+```sql
 SELECT name, population
   FROM world
  WHERE continent IN ('Europe', 'Asia')
@@ -247,7 +247,7 @@ SELECT name, population
 
 Q6. Select the code which would give two rows
 
-```
+```sql
 SELECT name FROM world
  WHERE name IN ('Cuba', 'Togo')
 ```
@@ -259,7 +259,7 @@ SELECT name FROM world
 Brazil
 Colombia
 ```
-###Select from Nobel Tutorial
+### Select from Nobel Tutorial
 
 nobel
 yr	subject	winner
@@ -270,29 +270,29 @@ yr	subject	winner
 ...
 
 Q1. Change the query shown so that it displays Nobel prizes for 1950.
-```
+```sql
 SELECT yr, subject, winner
   FROM nobel
  WHERE yr = 1950
  ```
 
 Q2. Show who won the 1962 prize for Literature.
-```
+```sql
 select winner from nobel where yr=1962 and subject like 'Literature';
 ``` 
 
 Q3. Show the year and subject that won 'Albert Einstein' his prize.
-```
+```sql
 select yr, subject from nobel where winner like 'Albert Einstein';
 ```
 
 Q4. Give the name of the 'Peace' winners since the year 2000, including 2000.
-```
+```sql
 select winner from nobel where yr >= 2000 and subject='Peace';
 ```
 
 Q5. Show all details (yr, subject, winner) of the Literature prize winners for 1980 to 1989 inclusive.
-```
+```sql
 select yr, subject, winner from nobel where yr BETWEEN 1980 and 1989 and subject='Literature';
 ```
 
@@ -303,7 +303,7 @@ Woodrow Wilson
 Jimmy Carter
 Barack Obama
 
-```
+```sql
 SELECT * FROM nobel
  WHERE winner IN ('Theodore Roosevelt',
                   'Woodrow Wilson',
@@ -312,12 +312,12 @@ SELECT * FROM nobel
 ```
 
 Q7. Show the winners with first name John
-```
+```sql
 select winner from nobel where winner like 'John %'
 ```
 
 Q8. Show the year, subject, and name of Physics winners for 1980 together with the Chemistry winners for 1984.
-```
+```sql
 select yr, subject, winner from nobel where yr=1984 and subject='Chemistry'
 UNION
 select yr, subject, winner from nobel 
@@ -325,55 +325,55 @@ where yr=1980 and subject='Physics'
 ```
 
 Q9. Show the year, subject, and name of winners for 1980 excluding Chemistry and Medicine?
-```
+```sql
 select yr, subject, winner from nobel where subject NOT IN ('Chemistry', 'Medicine') and yr=1980
 ```
 
 Q10. Show year, subject, and name of people who won a 'Medicine' prize in an early year (before 1910, not including 1910) together with winners of a 'Literature' prize in a later year (after 2004, including 2004)
-```
+```sql
 select yr, subject, winner from nobel where subject like 'Literature' and yr >= 2004
 UNION
 select yr, subject, winner from nobel where subject like 'Medicine' and yr<1910
 ```
 
 Q11. Find all details of the prize won by PETER GRÜNBERG
-```
+```sql
 select * from nobel where winner like 'PETER GRÜNBERG'
 ```
 
 Q12. To be figured out and solved
 
 Q13. List the winners, year and subject where the winner starts with Sir. Show the the most recent first, then by name order?
-```
+```sql
 select winner, yr, subject from nobel where winner like 'Sir%' order by yr desc, winner asc
 ```
 
 ### Nobel Quiz
 
 nobel
-yr	subject	winner
-1960	Chemistry	Willard F. Libby
-1960	Literature	Saint-John Perse
-1960	Medicine	Sir Frank Macfarlane Burnet
-1960	Medicine	Peter Medawar
-1960	Physics	Donald A. Glaser
-1960	Peace	Albert Lutuli
+|yr|	subject|	winner|
+|1960|	Chemistry|	Willard F. Libby|
+|1960	|Literature	|Saint-John Perse|
+|1960|	Medicine	|Sir Frank Macfarlane Burnet|
+|1960|	Medicine|	Peter Medawar|
+|1960	|Physics	|Donald A. Glaser|
+|1960	|Peace|	Albert Lutuli|
 ...
 
 Q1. Pick the code which shows the name of winner's names beginning with C and ending in n?
-```
+```sql
 SELECT winner FROM nobel
  WHERE winner LIKE 'C%' AND winner LIKE '%n'
 ```
 Q2. Select the code that shows how many Chemistry awards were given between 1950 and 1960?
-```
+```sql
 SELECT COUNT(subject) FROM nobel
  WHERE subject = 'Chemistry'
    AND yr BETWEEN 1950 and 1960
 ```
 
 Q3.  Pick the code that shows the amount of years where no Medicine awards were given?
-```
+```sql
 SELECT COUNT(DISTINCT yr) FROM nobel
  WHERE yr NOT IN (SELECT DISTINCT yr FROM nobel WHERE subject = 'Medicine')
 ```
@@ -386,7 +386,7 @@ Medicine	Sir Frank Macfarlane Burnet
 ```
 
 Q5. Select the code which would show the year when neither a Physics or Chemistry award was given?
-```
+```sql
 SELECT yr FROM nobel
  WHERE yr NOT IN(SELECT yr 
                    FROM nobel
@@ -394,7 +394,7 @@ SELECT yr FROM nobel
 ```
 
 Q6. Select the code which shows the years when a Medicine award was given but no Peace or Literature award was?
-```
+```sql
 SELECT DISTINCT yr
   FROM nobel
  WHERE subject='Medicine' 
@@ -421,17 +421,17 @@ Physics	1
 
 This tutorial looks at how we can use SELECT statements within SELECT statements to perform more complex queries.
 
-name	continent	area	population	gdp
-Afghanistan	Asia	652230	25500100	20343000000
-Albania	Europe	28748	2831741	12960000000
-Algeria	Africa	2381741	37100000	188681000000
-Andorra	Europe	468	78115	3712000000
-Angola	Africa	1246700	20609294	100990000000
+|name|	continent|	area|	population|	gdp|
+|Afghanistan|	Asia|	652230|	25500100|	20343000000|
+|Albania|	Europe|	28748|	2831741|	12960000000|
+|Algeria	|Africa|	2381741|	37100000	|188681000000|
+|Andorra|	Europe|	468|	78115|	3712000000|
+|Angola|	Africa|	1246700|	20609294|	100990000000|
 ...
 
 Q1. List each country name where the population is larger than that of 'Russia'.
 world(name, continent, area, population, gdp)
-```
+```sql
 SELECT name FROM world
   WHERE population >
      (SELECT population FROM world
@@ -439,30 +439,30 @@ SELECT name FROM world
 ```
 
 Q2. Show the countries in Europe with a per capita GDP greater than 'United Kingdom'.
-```
+```sql
 select name from world where GDP/population > (select GDP/population from world where name LIKE 'United Kingdom') and continent like 'Europe';
 ```
 
 Q3. List the name and continent of countries in the continents containing either Argentina or Australia. Order by name of the country.
-```
+```sql
 select name, continent from world 
 where name in (select name from world 
 where continent IN (select continent from world where name in ('Argentina', 'Australia')) order by name) order by name;
 ```
 
 Q4. Which country has a population that is more than Canada but less than Poland? Show the name and the population.
-```
+```sql
 select name, population from world where population > (select population from world where name like 'Canada') AND population < (select population from world where name like 'Poland')
 ```
 
 Q6. Which countries have a GDP greater than every country in Europe? [Give the name only.] (Some countries may have NULL gdp values)
 
-```
+```sql
 select name from world where gdp > (select gdp from world where continent like 'Europe' order by gdp desc LIMIT 1)
 ``` 
 
 Q7. Find the largest country (by area) in each continent, show the continent, the name and the area:
 
-```
+```sql
 select continent, name, area from world where area IN (select max(area) from world group by continent having continent IN (select continent from world group by continent order by area desc))
 ``` 
