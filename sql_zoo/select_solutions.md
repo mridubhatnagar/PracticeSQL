@@ -4,15 +4,14 @@
 
 world table
 
-| name  |  continent  |  area  |  population  |  gdp |
-|--- |--- |--- |--- |---  |
-| Afghanistan  |  Asia  |  652230  |  25500100  |  20343000000 | 
-| Albania  |  Europe  |  28748  |  2831741  |  12960000000 | 
-| Algeria  |  Africa  |  2381741  |  37100000  |  188681000000 | 
-| Andorra  |  Europe  |  468  |  78115  |  3712000000 | 
-| Angola  |  Africa  |  1246700  |  20609294  |  100990000000 | 
-
-
+|name|	continent|	area|	population|	gdp|
+|----|-----------|------|-----------|-----|
+|Afghanistan|	Asia|	652230|	25500100|	20343000000|
+|Albania	|Europe	|28748	|2831741	|12960000000|
+|Algeria	|Africa	|2381741	|37100000	|188681000000|
+|Andorra	|Europe	|468	|78115	|3712000000|
+|Angola	|Africa	|1246700	|20609294	|100990000000|
+|....                                            | 
 
 
 Q1. Modify it to show the population of Germany?
@@ -39,12 +38,12 @@ SELECT name, area FROM world
 Some questions concerning basic SQL statements
 
 |name |	region |	area	| population	| gdp|
-|--- |--- |--- |--- |---  |
+|-----|--------|--------|-------------|----|
 |Afghanistan	|South Asia	|652225	|26000000	|
 |Albania	|Europe	28728	|3200000	|6656000000|
 |Algeria	|Middle East	|2400000	|32900000|	75012000000|
 |Andorra	|Europe	|468	|64000	|
-...
+|...                            | 
 
 Q1. Select the code which produces this table
 
@@ -87,19 +86,19 @@ WHERE length(name)=5 and region='Europe'
 Result
 
 ```
-name	|length(name)
-Italy	|5
-Malta	|5
-Spain	|5
+|name	|length(name)|
+|Italy	|5         |   
+|Malta	|5         |
+|Spain	|5         | 
 ```
 Here are the first few rows of the world table:
 |name	|region	|area	|population	|gdp|
 |-----|-------|-----|-----------|---|
 |Afghanistan	|South Asia	|652225	|26000000	|
-|Albania	Europe|	28728	|3200000	|6656000000|
-|Algeria	Middle |East	|2400000	|32900000	|75012000000
-|Andorra	Europe	|468	|64000	|           | 
-...
+|Albania|	Europe|	28728	|3200000	|6656000000|
+|Algeria|	Middle |East	|2400000	|32900000	|75012000000|
+|Andorra|	Europe	|468	|64000	|           |           |
+|...                                                   |   
 
 Q5. Pick the result you would obtain from this code:
 ```sql
@@ -124,13 +123,14 @@ SELECT name, population/area
  
 ### SELECT from World Tutorial
 
-name	|continent	|area	|population	|gdp|
-Afghanistan	|Asia	|652230	|25500100	|20343000000|
-Albania	|Europe	|28748	|2831741|	12960000000|
-Algeria	|Africa	|2381741	|37100000|	188681000000|
-Andorra	|Europe	|468	|78115	|3712000000|
-Angola	|Africa	|1246700	|20609294|	100990000000|
-...
+|name	|continent	|area	|population	|gdp|
+|-----|-----------|-----|-----------|---|
+|Afghanistan	|Asia	|652230	|25500100	|20343000000|
+|Albania	|Europe	|28748	|2831741|	12960000000|
+|Algeria	|Africa	|2381741	|37100000|	188681000000|
+|Andorra	|Europe	|468	|78115	|3712000000|
+|Angola	|Africa	|1246700	|20609294|	100990000000|
+|...                                              |
 
 Q1. Observe the result of running this SQL command to show the name, continent and population of all countries?
 
@@ -232,6 +232,7 @@ WHERE name LIKE '%a%' and name LIKE '%e%' and name LIKE '%i%' and name LIKE '%o%
 
 world
 |name|	continent	|area	|population|	gdp|
+|----|------------|-----|----------|-----|
 |Afghanistan	|South Asia|	652225|	26000000|	
 |Albania	|Europe	|28728	|3200000|	6656000000|
 |Algeria	|Middle East|	2400000	|32900000|	75012000000|
@@ -240,7 +241,7 @@ world
 |Colombia	|South America|	1140000|	45600000	|
 |Nauru	|Asia-Pacific|	21|	9900|	
 |Uzbekistan|	Central Asia|	447000|	26000000|	
-...
+|...                                        | 
 
 Q1. Select the code which gives the name of countries beginning with U?
 ```sql
@@ -276,7 +277,7 @@ Result:
 ```
 Nauru	990
 ```
-#### Q5. Select the code which would reveal the name and population of countries in Europe and Asia
+Q5. Select the code which would reveal the name and population of countries in Europe and Asia
 
 ```sql
 SELECT name, population
@@ -302,12 +303,13 @@ Colombia
 ### Select from Nobel Tutorial
 
 nobel
-yr	subject	winner
-1960	Chemistry	Willard F. Libby
-1960	Literature	Saint-John Perse
-1960	Medicine	Sir Frank Macfarlane Burnet
-1960	Medicine	Peter Madawar
-...
+|yr	|subject|	winner|
+|---|-------|-------|
+|1960|	Chemistry	|Willard F. Libby|
+|1960|	Literature|	Saint-John Perse|
+|1960|	Medicine|	Sir Frank Macfarlane Burnet|
+|1960	|Medicine	|Peter Madawar|
+|...                         |
 
 Q1. Change the query shown so that it displays Nobel prizes for 1950.
 ```sql
@@ -392,13 +394,14 @@ select winner, yr, subject from nobel where winner like 'Sir%' order by yr desc,
 
 nobel
 |yr|	subject|	winner|
+|--|---------|--------|
 |1960|	Chemistry|	Willard F. Libby|
 |1960	|Literature	|Saint-John Perse|
 |1960|	Medicine	|Sir Frank Macfarlane Burnet|
 |1960|	Medicine|	Peter Medawar|
 |1960	|Physics	|Donald A. Glaser|
 |1960	|Peace|	Albert Lutuli|
-...
+|...                       |  
 
 Q1. Pick the code which shows the name of winner's names beginning with C and ending in n?
 ```sql
