@@ -14,7 +14,8 @@ Angola	Africa	1246700	20609294	100990000000
 ```
 
 Q1. Modify it to show the population of Germany?
-```
+
+```sql
 SELECT population FROM world
   WHERE name = 'France'
 ```
