@@ -173,22 +173,22 @@ SELECT name,
  WHERE LENGTH(name) = LENGTH(capital)
 ```
 
-Q12. The capital of Sweden is Stockholm. Both words start with the letter 'S'.
+#### Q12. The capital of Sweden is Stockholm. Both words start with the letter 'S'.
 
-Show the name and the capital where the first letters of each match. Don't include countries where the name and the capital are the same word.
-You can use the function LEFT to isolate the first character.
-You can use <> as the NOT EQUALS operator.
+#### Show the name and the capital where the first letters of each match. Don't include #### countries where the name and the capital are the same word.
+#### You can use the function LEFT to isolate the first character.
+#### You can use <> as the NOT EQUALS operator.
 ```
 SELECT name, capital
 FROM world where name != capital and LEFT(name,1) = LEFT(capital, 1)
 ```
 
-Q13. Equatorial Guinea and Dominican Republic have all of the vowels (a e i o u) in the name. They don't count because they have more than one word in the name.
+#### Q13. Equatorial Guinea and Dominican Republic have all of the vowels (a e i o u) in the name. They don't count because they have more than one word in the name.
 
-Find the country that has all the vowels and no spaces in its name.
+#### Find the country that has all the vowels and no spaces in its name.
 
-You can use the phrase name NOT LIKE '%a%' to exclude characters from your results.
-The query shown misses countries like Bahamas and Belarus because they contain at least one 'a'
+#### You can use the phrase name NOT LIKE '%a%' to exclude characters from your results.
+#### The query shown misses countries like Bahamas and Belarus because they contain at least one 'a'
 ```
 SELECT name
    FROM world
@@ -208,13 +208,14 @@ Colombia	South America	1140000	45600000
 Nauru	Asia-Pacific	21	9900	
 Uzbekistan	Central Asia	447000	26000000	
 ...
+
 Q1. Select the code which gives the name of countries beginning with U
 ```
 SELECT name
   FROM world
  WHERE name LIKE 'U%'
 ```
-Q2. Select the code which shows just the population of United Kingdom?
+#### Q2. Select the code which shows just the population of United Kingdom?
 ```
 SELECT population
   FROM world
@@ -237,7 +238,7 @@ Q4. Select the result that would be obtained from the following code:
 ```
 Nauru	990
 ```
-Q5. Select the code which would reveal the name and population of countries in Europe and Asia
+#### Q5. Select the code which would reveal the name and population of countries in Europe and Asia
 ```
 SELECT name, population
   FROM world
@@ -455,11 +456,13 @@ select name, population from world where population > (select population from wo
 ```
 
 Q6. Which countries have a GDP greater than every country in Europe? [Give the name only.] (Some countries may have NULL gdp values)
+
 ```
 select name from world where gdp > (select gdp from world where continent like 'Europe' order by gdp desc LIMIT 1)
 ``` 
 
 Q7. Find the largest country (by area) in each continent, show the continent, the name and the area:
+
 ```
 select continent, name, area from world where area IN (select max(area) from world group by continent having continent IN (select continent from world group by continent order by area desc))
 ``` 
