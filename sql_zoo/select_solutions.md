@@ -87,6 +87,7 @@ Result
 
 ```
 |name	|length(name)|
+|-----|------------|
 |Italy	|5         |   
 |Malta	|5         |
 |Spain	|5         | 
