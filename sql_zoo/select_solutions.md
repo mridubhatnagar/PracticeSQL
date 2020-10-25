@@ -45,10 +45,11 @@ Andorra	|Europe	|468	|64000
 
 Q1. Select the code which produces this table
 
-name|	population
-Bahrain|	1234571
-Swaziland|	1220000
-Timor-Leste|	1066409
+|name|	population|
+|----|------------|
+|Bahrain|	1234571|
+|Swaziland|	1220000|
+|Timor-Leste|	1066409|
 
 
 Select name, population from country where population between 1000000 and 1250000;
@@ -89,11 +90,12 @@ Malta	|5
 Spain	|5
 ```
 Here are the first few rows of the world table:
-name	|region	|area	|population	|gdp|
-Afghanistan	|South Asia	|652225	|26000000	|
-Albania	Europe|	28728	|3200000	|6656000000|
-Algeria	Middle |East	|2400000	|32900000	|75012000000
-Andorra	Europe	|468	|64000	|           | 
+|name	|region	|area	|population	|gdp|
+|-----|-------|-----|-----------|---|
+|Afghanistan	|South Asia	|652225	|26000000	|
+|Albania	Europe|	28728	|3200000	|6656000000|
+|Algeria	Middle |East	|2400000	|32900000	|75012000000
+|Andorra	Europe	|468	|64000	|           | 
 ...
 
 Q5. Pick the result you would obtain from this code:
@@ -272,10 +274,7 @@ Result:
 Nauru	990
 ```
 #### Q5. Select the code which would reveal the name and population of countries in Europe and Asia
-<<<<<<< HEAD
-=======
 
->>>>>>> d5b815a41cc2ee1beab94433b6378ef7ed925271
 ```sql
 SELECT name, population
   FROM world
@@ -461,12 +460,13 @@ Physics	1
 This tutorial looks at how we can use SELECT statements within SELECT statements to perform more complex queries.
 
 |name|	continent|	area|	population|	gdp|
+|----|-----------|------|-----------|----|
 |Afghanistan|	Asia|	652230|	25500100|	20343000000|
 |Albania|	Europe|	28748|	2831741|	12960000000|
 |Algeria	|Africa|	2381741|	37100000	|188681000000|
 |Andorra|	Europe|	468|	78115|	3712000000|
 |Angola|	Africa|	1246700|	20609294|	100990000000|
-...
+|...                                              |
 
 Q1. List each country name where the population is larger than that of 'Russia'.
 world(name, continent, area, population, gdp)
