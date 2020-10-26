@@ -511,3 +511,81 @@ Q7. Find the largest country (by area) in each continent, show the continent, th
 ```sql
 select continent, name, area from world where area IN (select max(area) from world group by continent having continent IN (select continent from world group by continent order by area desc))
 ``` 
+
+### Using Nested Select
+
+Q1. List each country in the same continent as 'Brazil'.
+
+```
+SELECT name
+FROM world
+WHERE continent =
+    (SELECT continent
+     FROM world
+     WHERE name like 'Brazil')
+```
+
+Q2. List each country and its continent in the same continent as 'Brazil' or 'Mexico'.
+
+```
+SELECT name, continent FROM world
+WHERE continent IN
+  (SELECT continent 
+     FROM world WHERE name='Brazil'
+                   OR name='Mexico')
+```
+
+Q3. Show each country that has a population greater than the population of ALL countries in Europe.
+
+Note that we mean greater than every single country in Europe; not the combined population of Europe.
+
+```
+SELECT name FROM world
+ WHERE population > ALL
+      (SELECT population FROM world
+        WHERE continent='Europe')
+```
+
+### Nested Select Quiz
+
+bbc
+|name	|region	|area	|population	|gdp|
+|-----|-------|-----|-----------|---|
+|Afghanistan|	South Asia|	652225	|26000000|	
+|Albania	|Europe	|28728	|3200000	|6656000000|
+|Algeria	|Middle East|	2400000	|32900000	|75012000000|
+|Andorra	|Europe	|468	|64000	|
+|Bangladesh	|South Asia	|143998	|152600000	|67144000000|
+|United Kingdom	|Europe|	242514	|59600000	|2022824000000|
+...
+
+Q5. Select the code that would show the countries with a greater GDP than any country in Africa (some countries may have NULL gdp values).
+
+```sql
+SELECT name FROM bbc
+ WHERE gdp > (SELECT MAX(gdp) FROM bbc WHERE region = 'Africa')
+```
+
+Q7. Select the result that would be obtained from the following code:
+```
+SELECT name FROM bbc
+ WHERE population > ALL
+       (SELECT MAX(population)
+          FROM bbc
+         WHERE region = 'Europe')
+   AND region = 'South Asia'
+```
+
+Result:
+
+Table-B
+Bangladesh
+India
+Pakistan
+
+Q6. Select the code that shows the countries with population smaller than Russia but bigger than Denmark
+```
+SELECT name FROM bbc
+ WHERE population < (SELECT population FROM bbc WHERE name='Russia')
+   AND population > (SELECT population FROM bbc WHERE name='Denmark')
+```
