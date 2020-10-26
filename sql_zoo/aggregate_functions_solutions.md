@@ -118,7 +118,7 @@ SELECT name, population/area AS density FROM bbc WHERE population = (SELECT MAX(
 ```
 
 Q8. Pick the result that would be obtained from the following code:
-```
+```sql
 SELECT region, SUM(area) 
    FROM bbc 
   GROUP BY region 
@@ -127,6 +127,8 @@ SELECT region, SUM(area)
 
 Result:
 
+|region| sum(area)|
+|------|----------|
 |Americas|	732240|
 |Middle East	|13403102|
 |South America|	17740392|
