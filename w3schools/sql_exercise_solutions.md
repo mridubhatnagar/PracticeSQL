@@ -1,3 +1,7 @@
+# W3Schools Exercise
+
+
+
 Q1. Insert the missing statement to get all the columns from the Customers table.
 ```sql
 select * from customers;
